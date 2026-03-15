@@ -85,3 +85,50 @@ if(logo){
         logo.style.transform = `rotate(${Math.sin(angle * 0.01) * 2}deg)`;
     }, 30);
 }
+
+// =============================
+// SCROLL REVEAL FOR SECTIONS
+// =============================
+const sections = document.querySelectorAll('section');
+
+const revealSection = () => {
+  const triggerBottom = window.innerHeight / 5 * 4;
+
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if (sectionTop < triggerBottom) {
+      section.classList.add('visible');
+      section.classList.remove('hidden');
+    } else {
+      section.classList.add('hidden');
+      section.classList.remove('visible');
+    }
+  });
+};
+
+// Initialize hidden
+sections.forEach(section => section.classList.add('hidden'));
+
+// Listen to scroll
+window.addEventListener('scroll', revealSection);
+revealSection(); // run once on load
+
+// =============================
+// OPTIONAL: CARD HOVER ANIMATION
+// =============================
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    card.style.transform = `rotateX(${-(y - rect.height/2)/20}deg) rotateY(${(x - rect.width/2)/20}deg) translateZ(10px)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
+  });
+});
