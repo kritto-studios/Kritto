@@ -438,6 +438,21 @@ gap:20px;
 
     }
 
+/* CARD FLIP */
+.card {
+  perspective: 1000px;
+}
+
+.card.open {
+  transform: rotateY(180deg);
+}
+
+/* WORLD BLOOM INITIAL STATE */
+.world {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+}
+
 /* NAVIGATION */
 nav{
 display:flex;
