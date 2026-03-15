@@ -437,3 +437,46 @@ gap:20px;
 }
 
     }
+
+/* NAVIGATION */
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+}
+
+.logo{
+font-size:28px;
+letter-spacing:3px;
+font-weight:500;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:#1a1a1a;
+font-size:15px;
+position:relative;
+}
+
+/* underline animation */
+nav a::after{
+content:"";
+position:absolute;
+width:0;
+height:1px;
+background:#1a1a1a;
+left:0;
+bottom:-4px;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
