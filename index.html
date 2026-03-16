@@ -12,34 +12,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
 
-  <!-- NAVIGATION -->
-  <nav>
+<!-- NAVIGATION PLACEHOLDER -->
+<div id="nav-placeholder"></div>
 
-<div class="nav-inner">
-
-<div class="logo">
-<a href="index.html">Kritto</a>
-</div>
-
-<ul>
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="visuals.html">Visuals</a></li>
-<li><a href="mechanicalistics.html">Mechanicalistics</a></li>
-<li><a href="ink.html">Ink</a></li>
-<li><a href="fashion.html">Fashion</a></li>
-<li><a href="cards.html">Cards</a></li>
-<li><a href="letters.html">Letters</a></li>
-<li><a href="bouquets.html">Bouquets</a></li>
-<li><a href="stickers.html">Stickers</a></li>
-<li><a href="greenery.html">Greenery</a></li>
-<li><a href="mehedi.html">Mehedi</a></li>
-</ul>
-
-</div>
-
-  </nav>
+<!-- Page content here -->
+<section>
+  ...
+</section>
 
   <!-- HERO -->
   <section id="home" class="hero">
@@ -159,5 +140,15 @@
 
 <!-- SCRIPT -->
 <script src="script.js"></script>
+
+<script>
+fetch('nav.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('nav-placeholder').innerHTML = data;
+  })
+  .catch(error => console.error('Error loading nav:', error));
+</script>
+
 </body>
 </html>
