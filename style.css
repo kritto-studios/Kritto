@@ -16,6 +16,23 @@ line-height:1.7;
 overflow-x:hidden;
 }
 
+h1,h2,h3{
+font-family:'Cinzel', serif;
+font-weight:700;
+letter-spacing:2px;
+}
+
+p{
+font-family:'Lora', serif;
+font-size:17px;
+color:#5f5647;
+max-width:650px;
+margin:auto;
+
+   section{
+padding:140px 0;
+   }
+
 /* =========================
    CONTAINER
 ========================= */
