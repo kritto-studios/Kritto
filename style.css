@@ -1,110 +1,200 @@
 /* =========================
    GLOBAL RESET
 ========================= */
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family:'Lora', serif;
-  overflow-x:hidden;
-  scroll-behavior:smooth;
-  background:#fff7eb;
-  color:#111;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Lora', serif;
+background:#f6f2ea;
+color:#2b2b2b;
+line-height:1.7;
+overflow-x:hidden;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 40px;
 }
 
 /* =========================
    NAVIGATION
 ========================= */
-nav {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 50px;
-  background:rgba(255,247,235,0.95);
-  backdrop-filter:blur(15px);
-  z-index:1000;
-  box-shadow:0 5px 30px rgba(0,0,0,0.05);
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#f6f2ea;
+border-bottom:1px solid #e6dfd2;
+z-index:1000;
 }
 
-nav .logo {
-  font-family:'Cinzel', serif;
-  font-size:2rem;
-  font-weight:700;
-  color:#f5c469; /* gold */
-  letter-spacing:1px;
+nav .nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 40px;
 }
 
-nav ul {
-  display:flex;
-  gap:25px;
-  flex-wrap:wrap;
+.logo{
+font-family:'Cinzel', serif;
+font-size:24px;
+letter-spacing:2px;
+color:#3a3226;
 }
 
-nav ul li a {
-  text-decoration:none;
-  font-weight:600;
-  color:#111;
-  position:relative;
-  transition:0.3s;
+nav ul{
+display:flex;
+gap:28px;
+list-style:none;
 }
 
-nav ul li a::after {
-  content:'';
-  position:absolute;
-  width:0%;
-  height:2px;
-  background:#f5c469; /* gold underline */
-  left:0;
-  bottom:-4px;
-  transition:width 0.3s;
+nav a{
+text-decoration:none;
+color:#4a4236;
+font-size:15px;
+transition:color .3s ease;
 }
 
-nav ul li a:hover::after { width:100%; }
+nav a:hover{
+color:#8a6b3d;
+}
 
 /* =========================
    HERO
 ========================= */
-.hero {
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background:linear-gradient(135deg, #fff7eb, #f5c469, #79c7e3);
-  background-size:400% 400%;
-  animation:gradientShift 20s ease infinite;
-  padding:0 20px;
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding-top:80px;
 }
 
-@keyframes gradientShift {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0%  transition:all 0.5s ease;
+.hero h1{
+font-family:'Cinzel', serif;
+font-size:70px;
+letter-spacing:4px;
+margin-bottom:20px;
+color:#3a3226;
 }
 
-section.hidden {
-  opacity:0;
-  transform:scale(0.95) translateY(50px);
+.hero p{
+font-size:20px;
+color:#6a5f50;
 }
 
-section.visible {
-  opacity:1;
-  transform:scale(1) translateY(0);
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+padding:120px 0;
+border-bottom:1px solid #ece5d8;
 }
 
-section h2 {
-  font-family:'Playfair Display', serif;
-  font-size:3rem;
-  text-align:center;
-  margin-bottom:30px;
-  color:#f5c469; /* gold headings */
-  letter-spacing:1px;
+.section-title{
+font-family:'Cinzel', serif;
+font-size:36px;
+margin-bottom:25px;
+color:#3a3226;
+text-align:center;
 }
 
-section p {
+.section-text{
+max-width:600px;
+margin:auto;
+text-align:center;
+color:#6a5f50;
+}
+
+/* =========================
+   CARDS GRID
+========================= */
+
+.cards-container{
+margin-top:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:30px;
+}
+
+.card{
+background:#ffffff;
+padding:40px;
+border-radius:10px;
+border:1px solid #ece5d8;
+text-align:center;
+transition:transform .35s ease, box-shadow .35s ease;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card-title{
+font-family:'Cinzel', serif;
+font-size:20px;
+margin-bottom:10px;
+}
+
+/* =========================
+   COMING SOON BOX
+========================= */
+
+.coming-soon{
+margin-top:40px;
+padding:50px;
+border:1px dashed #c9b79b;
+text-align:center;
+border-radius:8px;
+color:#7a6b56;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+padding:40px 0;
+text-align:center;
+font-size:14px;
+color:#7a6b56;
+background:#f0eadf;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:46px;
+}
+
+nav ul{
+display:none;
+}
+
+.container{
+padding:0 20px;
+}
+
+}section p {
   text-align:center;
   font-size:1.2rem;
   color:#111;
