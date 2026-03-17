@@ -1,38 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kritto Visuals</title>
 
-  <!-- Main site CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Museum visuals CSS -->
-  <link rel="stylesheet" href="visuals.css">
-
-  <!-- Fonts -->
+  <!-- Premium Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Optional Museum-level visuals CSS -->
+  <link rel="stylesheet" href="visuals.css">
 </head>
+<body>
 
-<!-- KRITTO VISUALS SECTION -->
-<section id="visuals" class="kritto-section">
-  <div class="section-header">
-    <h2>Kritto Visuals</h2>
+  <!-- NAVIGATION -->
+  <div id="nav-placeholder"></div>
+
+  <!-- HERO / PAGE HEADER -->
+  <section class="hero">
+    <h1>Kritto Visuals</h1>
     <p>Just fun designs, art, and aesthetic sceneries to explore.</p>
-  </div>
+  </section>
 
-  <div class="visuals-gallery">
-    <div class="visual-item">
-      <img src="images/krittovisuals1.jpg" alt="Kritto Visual 1">
+  <!-- VISUALS GALLERY -->
+  <section id="visuals" class="kritto-section">
+    <div class="visuals-gallery">
+      <div class="visual-item">
+        <img src="images/krittovisuals1.jpg" alt="Kritto Visual 1">
+      </div>
+      <div class="visual-item">
+        <img src="images/krittovisuals2.jpg" alt="Kritto Visual 2">
+      </div>
+      <div class="visual-item">
+        <img src="images/krittovisuals3.jpg" alt="Kritto Visual 3">
+      </div>
+      <div class="visual-item">
+        <img src="images/krittovisuals4.jpg" alt="Kritto Visual 4">
+      </div>
+      <!-- Add more visuals here -->
     </div>
-    <div class="visual-item">
-      <img src="images/krittovisuals2.jpg" alt="Kritto Visual 2">
-    </div>
-    <div class="visual-item">
-      <img src="images/krittovisuals3.jpg" alt="Kritto Visual 3">
-    </div>
-    <div class="visual-item">
-      <img src="images/krittovisuals4.jpg" alt="Kritto Visual 4">
-    </div>
-    <!-- Add more visuals here -->
-  </div>
-</section>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 Kritto. All rights reserved.
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+  <script>
+    fetch('nav.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading nav:', error));
+  </script>
+
+</body>
+</html>
