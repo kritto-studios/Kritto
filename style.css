@@ -323,3 +323,13 @@ footer {
   transform: scale(1.05);
   box-shadow: 0 15px 35px rgba(0,0,0,0.18);
 }
+
+.section h2 a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+.section h2 a:hover {
+  opacity: 0.6;
+}
