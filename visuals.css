@@ -79,6 +79,7 @@ body {
     column-count: 2;
     padding: 0 50px 80px;
   }
+
 }
 
 @media (max-width: 600px) {
@@ -106,3 +107,15 @@ footer {
   padding: 50px 20px;
   font-size: 0.9rem;
   }
+
+
+.clickable-heading {
+  text-decoration: none; /* Remove underline */
+  color: #3a3226;        /* Same as your heading color */
+  transition: color 0.3s ease;
+}
+
+.clickable-heading:hover {
+  color: #8a6b3d;        /* Warm hover color */
+  cursor: pointer;
+}
