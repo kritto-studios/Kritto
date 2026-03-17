@@ -5,106 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kritto - Artistic Luxury</title>
 
-  <!-- Premium Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  
 
-<!-- NAVIGATION PLACEHOLDER -->
+<body>
+
+<!-- NAV -->
 <div id="nav-placeholder"></div>
 
-
-<!-- Page content here -->
-<section>
-  ...
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Kritto</h1>
+  <p>Where art blooms in every form — cards, visuals, and dreams.</p>
 </section>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <h1>Kritto</h1>
-    <p>Where art blooms in every form — cards, visuals, and dreams.</p>
-  </section>
+<!-- CLICKABLE LINK (ADD THIS 👇) -->
+<section class="section">
+  <h2>
+    <a href="#visuals">Kritto Visuals — Coming Soon</a>
+  </h2>
+</section>
 
-      
-  <!-- VISUALS -->
-  <section id="visuals" class="section">
-    <h2>Kritto Visuals</h2>
-    <p>Fun, aesthetic designs — scroll to explore.</p>
-    <div class="coming-soon">Coming Soon</div>
-  </section>
+<!-- VISUALS -->
+<section id="visuals" class="section">
+  <h2>Kritto Visuals</h2>
+  <p>Fun, aesthetic designs — scroll to explore.</p>
+  <div class="coming-soon">Coming Soon</div>
+</section>
 
-  <!-- MECHANICALISTICS -->
-  <section id="mechanicalistics" class="section">
-    <h2>Kritto Mechanicalistics</h2>
-    <p>Unique tech & creative designs.</p>
-    <div class="coming-soon">Coming Soon</div>
-  </section>
+<!-- OTHER SECTIONS -->
+<section id="cards" class="section">
+  <h2>Kritto Cards</h2>
+  <p>Digital & physical cards — interactive & luxurious.</p>
+</section>
 
-  <!-- INK -->
-  <section id="ink" class="section">
-    <h2>Kritto Ink</h2>
-    <p>Stationery & small artistic creations.</p>
-    <div class="coming-soon">Coming Soon</div>
-  </section>
+<section id="letters" class="section">
+  <h2>Kritto Letters</h2>
+</section>
 
-  <!-- FASHION -->
-  <section id="fashion" class="section">
-    <h2>Kritto Fashion</h2>
-    <p>Wearable art and unique clothing.</p>
-    <div class="coming-soon">Coming Soon</div>
-  </section>
+<section id="about" class="section">
+  <h2>About Kritto</h2>
+</section>
 
-  <!-- CARDS -->
-  <section id="cards" class="section">
-    <h2>Kritto Cards</h2>
-    <p>Digital & physical cards — interactive & luxurious.</p>
-    <div class="cards-container">
-      <div class="card">Card 1</div>
-      <div class="card">Card 2</div>
-      <div class="card">Card 3</div>
-    </div>
-  </section>
+<!-- FOOTER -->
+<footer>
+  &copy; 2026 Kritto. All rights reserved.
+</footer>
 
-  <!-- GREENERY -->
-  <section id="greenery" class="section">
-    <h2>Kritto Greenery</h2>
-    <p>Tree pots & natural decor creations.</p>
-    <div class="coming-soon">Coming Soon</div>
-  </section>
+<!-- NAV LOAD SCRIPT -->
+<script>
+fetch('nav.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('nav-placeholder').innerHTML = data;
+  });
+</script>
 
-  <!-- MEHEDI ART -->
-  <section id="mehedi" class="section">
-    <h2>Kritto Mehedi Art</h2>
-    <p>Custom mehendi designs based on your outfit.</p>
-    <div class="coming-soon">Submit an image for custom design</div>
-  </section>
+<!-- JS -->
+<script src="script.js"></script>
 
-  <!-- STICKERS -->
-  <section id="stickers" class="section">
-    <h2>Kritto Stickers</h2>
-    <div class="coming-soon">Coming Soon</div>
-  </section>
-
-  <!-- BOUQUETS -->
-  <section id="bouquets" class="section">
-    <h2>Kritto Bouquets</h2>
-    <div class="coming-soon">Coming Soon</div>
-  </section>
-
-  <!-- LETTERS -->
-  <section id="letters" class="section">
-    <h2>Kritto Letters</h2>
-    <p>Send digital letters to your loved ones.</p>
-    <div class="coming-soon">Coming Soon</div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <h2>About Kritto</h2>
+</body>
+</html>    <h2>About Kritto</h2>
     <p>Kritto is a premium artistic brand from Bangladesh. Everything we create blooms with life and art.</p>
   </section>
 
