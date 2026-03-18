@@ -8,8 +8,40 @@
 /* BODY */
 body {
   font-family: 'Cinzel', serif;
-  background: #ffffff; /* PURE WHITE */
-  color: #111;
+  background: white;
+  color: black;
+  overflow-x: hidden;
+}
+
+/* BACKGROUND IMAGE */
+.bg-image {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url("images/bg.jpg") center/cover no-repeat;
+  opacity: 0.08; /* VERY SOFT */
+  z-index: -1;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 25px 50px;
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+}
+
+.logo {
+  font-size: 26px;
+}
+
+.about-link {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
 }
 
 /* HERO */
@@ -19,53 +51,77 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px;
-  text-align: center;
+  gap: 20px;
 }
 
 .hero h1 {
   font-size: 110px;
   letter-spacing: 8px;
-  color: #111;
 }
 
-/* GOLD TEXT LINE */
-.hero-line {
+.hero p {
   font-family: 'Lora', serif;
-  font-size: 30px;
+  font-size: 28px;
   color: #c9a24a; /* GOLD */
-  max-width: 700px;
 }
 
-/* MAIN SECTIONS */
-.main-sections {
+/* SECTIONS */
+.sections {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
-  padding: 120px 0;
+  gap: 70px;
+  padding-bottom: 150px;
 }
 
-/* CLICKABLE LINKS */
-.section-link {
-  font-size: 50px;
+.sections a {
   text-decoration: none;
-  color: #111;
-  transition: all 0.3s ease;
-  letter-spacing: 2px;
+  font-size: 48px;
+  color: black;
+  transition: 0.3s;
 }
 
-/* HOVER EFFECT = GOLD + LUXURY */
-.section-link:hover {
+.sections a:hover {
   color: #c9a24a;
-  transform: scale(1.08);
-  text-shadow: 0 0 20px rgba(201,162,74,0.3);
+  transform: scale(1.05);
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 40px;
-  font-size: 14px;
-  color: #999;
+/* SIDE IMAGES */
+.side-images {
+  position: fixed;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.side-images img {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+  .side-images {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 60px;
+  }
+
+  .sections a {
+    font-size: 32px;
+  }
 }
