@@ -3,59 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kritto - Artistic Luxury</title>
+  <title>Kritto</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Main CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Optional Section-specific CSS -->
-  <!-- <link rel="stylesheet" href="visuals.css"> -->
 </head>
+
 <body>
-  
-  <div id="nav-placeholder"></div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Kritto</h1>
-    <p class="hero-line">The world makes things. Kritto makes yours.</p>
-  </section>
+<!-- BACKGROUND IMAGE -->
+<div class="bg-image"></div>
 
-  <!-- MAIN SECTIONS -->
-  <section class="main-sections">
+<!-- NAV -->
+<nav>
+  <div class="logo">Kritto</div>
+  <a href="about.html" class="about-link">About</a>
+</nav>
 
-    <a href="visuals.html" class="section-link">Kritto Visuals</a>
-    <a href="cards.html" class="section-link">Kritto Cards</a>
-    <a href="letters.html" class="section-link">Kritto Letters</a>
-    <a href="fashion.html" class="section-link">Kritto Fashion</a>
-    <a href="ink.html" class="section-link">Kritto Ink</a>
-    <a href="mechanicalistics.html" class="section-link">Mechanicalistics</a>
-    <a href="greenery.html" class="section-link">Greenery</a>
-    <a href="mehedi.html" class="section-link">Mehedi Art</a>
-    <a href="stickers.html" class="section-link">Stickers</a>
-    <a href="bouquets.html" class="section-link">Bouquets</a>
+<!-- SIDE IMAGES -->
+<div class="side-images left">
+  <img src="images/side1.jpg">
+  <img src="images/side2.jpg">
+</div>
 
-  </section>
+<div class="side-images right">
+  <img src="images/side3.jpg">
+  <img src="images/side4.jpg">
+</div>
 
+<!-- HERO -->
+<section class="hero">
+  <h1>Kritto</h1>
+  <p>The world makes things. Kritto makes yours.</p>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    &copy; 2026 Kritto. All rights reserved.
-  </footer>
+<!-- SECTIONS -->
+<section class="sections">
 
-  <!-- SCRIPTS -->
-  <script src="script.js"></script>
-  <script>
-    fetch('nav.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('nav-placeholder').innerHTML = data;
-      })
-      .catch(error => console.error('Error loading nav:', error));
-  </script>
+  <a href="visuals.html">Kritto Visuals</a>
+  <a href="cards.html">Kritto Cards</a>
+  <a href="letters.html">Kritto Letters</a>
+  <a href="fashion.html">Kritto Fashion</a>
+  <a href="ink.html">Kritto Ink</a>
+
+</section>
 
 </body>
 </html>
