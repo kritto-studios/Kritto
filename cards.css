@@ -1,0 +1,118 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Cinzel', serif;
+  background: white;
+  color: black;
+}
+
+/* NAV */
+nav {
+  position: absolute;
+  width: 100%;
+  padding: 25px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.back {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+/* HERO */
+.hero {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 80px;
+}
+
+.hero p {
+  font-family: 'Lora', serif;
+  color: #c9a24a;
+  font-size: 22px;
+}
+
+/* FORM SECTION */
+.form-section {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+/* FORM */
+.card-form {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* LABELS */
+.card-form label {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* INPUTS */
+.card-form input,
+.card-form textarea,
+.card-form select {
+  padding: 15px;
+  border: 1px solid #ddd;
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* FOCUS EFFECT */
+.card-form input:focus,
+.card-form textarea:focus,
+.card-form select:focus {
+  border-color: #c9a24a;
+}
+
+/* TEXTAREA */
+textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+/* BUTTON */
+.card-form button {
+  margin-top: 10px;
+  padding: 15px;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* BUTTON HOVER */
+.card-form button:hover {
+  background: #c9a24a;
+  color: black;
+  }
