@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kritto Access</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Lora', serif;
+      background: white;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      margin-bottom: 30px;
+    }
+
+    input {
+      display: block;
+      margin: 10px auto;
+      padding: 10px;
+      width: 250px;
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      background: #d4af37;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kritto Access</h1>
+
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="signUp()">Sign Up</button>
+  <button onclick="login()">Login</button>
+
+  <script type="module" src="auth.js"></script>
+
+</body>
+</html>
