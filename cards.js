@@ -26,20 +26,23 @@ form.addEventListener("submit", async (e) => {
   const idea = form.querySelector('textarea[name="idea"]').value;
   const imageUrl = form.querySelector('input[name="image"]').value;
   const delivery = form.querySelector('select[name="delivery"]').value;
-
+  
+const trackingId = "KR-" + Math.floor(100000 + Math.random() * 900000);
+  
   try {
     await addDoc(collection(db, "cards"), {
-      name,
-      idea,
-      imageUrl,
-      delivery,
-      status: "Received", // Kritto system starts here
-      createdAt: new Date()
-    });
+  name,
+  idea,
+  imageUrl,
+  delivery,
+  status: "Received",
+  trackingId: trackingId, // 👈 ADD THIS
+  createdAt: new Date()
+});
+    alert("Your request has been received ✨\nTracking ID: " + trackingId);
 
-    alert("Your request has been received");
-    form.reset();
-
+form.reset();
+    
   } catch (error) {
     alert("Error: " + error.message);
   }
