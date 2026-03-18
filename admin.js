@@ -3,12 +3,13 @@ import { getFirestore, collection, getDocs } from "https://www.gstatic.com/fireb
 
 /* SAME CONFIG */
 const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
+  apiKey: "AIzaSyB2V7uSRF88EEa_7ca8M2L6bnmYMl6zLBE",
+  authDomain: "kritto-7c55b.firebaseapp.com",
   projectId: "kritto-7c55b",
   storageBucket: "kritto-7c55b.firebasestorage.app",
   messagingSenderId: "1091669122505",
-  appId: "YOUR_APP_ID"
+  appId: "1:1091669122505:web:c3b83baed9db2a5ce8dc18",
+  measurementId: "G-CL3SMLSLVN"
 };
 
 const app = initializeApp(firebaseConfig);
