@@ -125,3 +125,26 @@ nav {
     font-size: 32px;
   }
 }
+
+.auth-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.auth-buttons .btn {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  color: #fff;
+  background: #d4af37; /* gold */
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.auth-buttons .btn:hover {
+  background: #b8912e; /* darker gold on hover */
+  transform: translateY(-2px);
+}
