@@ -17,25 +17,50 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 window.track = async function () {
-  const input = document.getElementById("trackInput").value;
+  const input = document.getElementById("trackInput").value.trim();
   const result = document.getElementById("result");
 
-  const querySnapshot = await getDocs(collection(db, "cards"));
+  result.innerHTML = "Searching...";
 
-  let found = false;
+  let order = null;
+  let payment = null;
 
-  querySnapshot.forEach((doc) => {
+  /* GET ORDERS */
+  const ordersSnap = await getDocs(collection(db, "cards"));
+  ordersSnap.forEach((doc) => {
     const data = doc.data();
-
     if (data.trackingId === input) {
-      result.innerHTML = `
-        <p><b>Process:</b> ${data.status}</p>
-      `;
-      found = true;
+      order = data;
     }
   });
 
-  if (!found) {
-    result.innerHTML = "Tracking ID not found.";
+  /* GET PAYMENTS */
+  const paymentsSnap = await getDocs(collection(db, "payments"));
+  paymentsSnap.forEach((doc) => {
+    const data = doc.data();
+    if (data.trackingId === input) {
+      payment = data;
+    }
+  });
+
+  /* DISPLAY */
+  if (!order) {
+    result.innerHTML = "Kritto Signature not found.";
+    return;
   }
+
+  result.innerHTML = `
+    <p><b>Kritto Signature:</b> ${input}</p>
+    <p><b>Process:</b> ${order.status}</p>
+
+    <p><b>Verification Status:</b> ${
+      payment ? payment.status : "Pending"
+    }</p>
+
+    ${
+      payment
+        ? `<p><a href="${payment.proof}" target="_blank">View Payment Proof</a></p>`
+        : `<p>No payment submitted yet.</p>`
+    }
+  `;
 };
