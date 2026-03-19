@@ -1,3 +1,14 @@
+const params = new URLSearchParams(window.location.search);
+
+const name = params.get("name");
+const id = params.get("id");
+
+if (name && id) {
+  document.getElementById("rName").value = name;
+  document.getElementById("rId").value = id;
+}
+
+
 /* LOCAL PAYMENT INFO */
 
 function bkash() {
