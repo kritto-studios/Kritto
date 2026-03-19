@@ -39,7 +39,7 @@ const trackingId = "KR-" + Math.floor(100000 + Math.random() * 900000);
   trackingId: trackingId, // 👈 ADD THIS
   createdAt: new Date()
 });
-    alert("Your request has been received ✨\nTracking ID: " + trackingId);
+    window.location.href = `payment.html?name=${encodeURIComponent(name)}&id=${trackingId}`;
 
 form.reset();
     
