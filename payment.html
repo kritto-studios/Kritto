@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kritto Payment</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+
+  <h1 class="title">Seal Your Creation</h1>
+
+  <!-- INSTANT PAYMENT -->
+  <section class="payment-section">
+    <h2>Pay Instantly</h2>
+
+    <a href="YOUR_STRIPE_LINK" target="_blank" class="option">Pay with Card</a>
+    <a href="YOUR_PAYPAL_LINK" target="_blank" class="option">Pay with PayPal</a>
+  </section>
+
+  <!-- LOCAL PAYMENT -->
+  <section class="payment-section">
+    <h2>Local Payment</h2>
+
+    <div class="option" onclick="bkash()">bKash</div>
+    <div class="option" onclick="nagad()">Nagad</div>
+    <div class="option" onclick="rocket()">Rocket</div>
+
+    <p class="note">Manual verification required</p>
+  </section>
+
+  <!-- RECEIPT -->
+  <section class="receipt-section">
+    <h2>Your Kritto Receipt</h2>
+
+    <input type="text" id="rName" placeholder="Your Name">
+    <input type="text" id="rId" placeholder="Kritto Signature">
+
+    <button onclick="generateReceipt()">Generate Receipt</button>
+
+    <div id="receiptBox"></div>
+  </section>
+
+  <script src="payment.js"></script>
+
+</body>
+</html>
