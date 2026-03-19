@@ -148,3 +148,59 @@ nav {
   background: #b8912e; /* darker gold on hover */
   transform: translateY(-2px);
 }
+
+
+.auth-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.auth-container h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.auth-sub {
+  font-size: 16px;
+  opacity: 0.6;
+  margin-bottom: 30px;
+}
+
+.auth-container input {
+  display: block;
+  width: 260px;
+  padding: 12px;
+  margin: 10px auto;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+}
+
+.auth-container button {
+  margin-top: 15px;
+  padding: 12px 30px;
+  background: #d4af37;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.auth-container button:hover {
+  opacity: 0.85;
+}
+
+.switch {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.switch a {
+  color: #d4af37;
+  text-decoration: none;
+}
