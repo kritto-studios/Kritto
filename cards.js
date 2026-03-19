@@ -1,28 +1,26 @@
 // card.js
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, addDoc, collection, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 /* ===== FIREBASE CONFIG ===== */
 const firebaseConfig = {
-  apiKey: "AIzaSyB2V7uSRF88EEa_7ca8M2L6bnmYMl6zLBE",
+  apiKey: "AIzaSy...",
   authDomain: "kritto-7c55b.firebaseapp.com",
   projectId: "kritto-7c55b",
-  storageBucket: "kritto-7c55b.firebasestorage.app",
-  messagingSenderId: "1091669122505",
-  appId: "1:1091669122505:web:c3b83baed9db2a5ce8dc18",
-  measurementId: "G-CL3SMLSLVN"
 };
-
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app); // 
 
-/* ===== DOM ELEMENTS ===== */
+/* ===== DOM ===== */
 const form = document.querySelector(".card-form");
 const paymentBox = document.getElementById("paymentBox");
 const receiptBox = document.getElementById("receiptBox");
 
-/* ===== STEP 1: FORM SUBMISSION ===== */
+/* ===== STEP 1: FORM ===== */
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -31,76 +29,95 @@ form.addEventListener("submit", async (e) => {
   const delivery = form.querySelector('select[name="delivery"]').value;
 
   const trackingId = "KR-" + Math.floor(100000 + Math.random() * 900000);
+  const user = auth.currentUser;
 
   try {
+    // 
     const docRef = await addDoc(collection(db, "cards"), {
       name,
       idea,
       delivery,
       status: "Received",
       trackingId,
+      userId: user ? user.uid : "guest",
       createdAt: new Date()
     });
 
     form.reset();
-    alert(`Request received! Your Tracking ID: ${trackingId}`);
 
-    // Proceed to payment step
+    alert(`Request received ✨\nTracking ID: ${trackingId}`);
+
+    // PASS docRef.id
     showPaymentStep(name, trackingId, docRef.id);
 
   } catch (error) {
-    alert("Error submitting form: " + error.message);
+    alert("Error: " + error.message);
   }
 });
 
 /* ===== STEP 2: PAYMENT ===== */
 function showPaymentStep(name, trackingId, docId) {
   paymentBox.innerHTML = `
-    <h3>Payment for Your Card</h3>
+    <h3>Complete Your Payment</h3>
     <p>Tracking ID: <strong>${trackingId}</strong></p>
-    <button id="bkashBtn">Pay with Bkash</button>
-    <button id="nagadBtn">Pay with Nagad</button>
-    <button id="paypalBtn">Pay with PayPal</button>
-    <button id="stripeBtn">Pay with Stripe</button>
+
+    <button id="bkashBtn">Bkash</button>
+    <button id="nagadBtn">Nagad</button>
+    <button id="paypalBtn">PayPal</button>
+    <button id="stripeBtn">Card / Stripe</button>
   `;
 
-  // Event listeners for fake payment simulation
-  document.getElementById("bkashBtn").addEventListener("click", () => processPayment(docId, name, "Bkash"));
-  document.getElementById("nagadBtn").addEventListener("click", () => processPayment(docId, name, "Nagad"));
-  document.getElementById("paypalBtn").addEventListener("click", () => processPayment(docId, name, "PayPal"));
-  document.getElementById("stripeBtn").addEventListener("click", () => processPayment(docId, name, "Stripe"));
+  document.getElementById("bkashBtn").onclick = () => processPayment(docId, name, trackingId, "Bkash");
+  document.getElementById("nagadBtn").onclick = () => processPayment(docId, name, trackingId, "Nagad");
+  document.getElementById("paypalBtn").onclick = () => processPayment(docId, name, trackingId, "PayPal");
+  document.getElementById("stripeBtn").onclick = () => processPayment(docId, name, trackingId, "Stripe");
 }
 
-/* ===== STEP 2A: PAYMENT PROCESS ===== */
-async function processPayment(docId, name, method) {
-  // Here you would integrate real payment APIs
-  alert(`Payment via ${method} successful!`);
+/* ===== STEP 2A ===== */
+async function processPayment(docId, name, trackingId, method) {
+  alert(`Payment via ${method} successful ✨`);
 
-  // Update status in Firestore
   const cardRef = doc(db, "cards", docId);
-  await updateDoc(cardRef, { status: "Paid", paymentMethod: method, paidAt: new Date() });
 
-  // Proceed to receipt step
-  generateReceipt(name, docId, method);
+  await updateDoc(cardRef, {
+    status: "Paid",
+    paymentMethod: method,
+    paidAt: new Date()
+  });
+
+  generateReceipt(name, trackingId, method);
 }
 
 /* ===== STEP 3: RECEIPT ===== */
-function generateReceipt(name, docId, method) {
+function generateReceipt(name, trackingId, method) {
   receiptBox.innerHTML = `
     <div class="receipt">
       <h2>Kritto Receipt</h2>
+
       <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Tracking ID:</strong> ${docId}</p>
-      <p><strong>Payment Method:</strong> ${method}</p>
+      <p><strong>Tracking ID:</strong> ${trackingId}</p>
+      <p><strong>Payment:</strong> ${method}</p>
       <p><strong>Status:</strong> Paid</p>
-      <p>Thank you for trusting Kritto. Your card will be handcrafted just for you ✨</p>
+
+      <p class="thankyou">
+        Your creation has entered the atelier 
+      </p>
     </div>
+
     <button id="downloadReceipt">Download Receipt</button>
   `;
 
-  document.getElementById("downloadReceipt").addEventListener("click", () => {
-    const receiptContent = receiptBox.querySelector(".receipt").outerHTML;
-    const blob = new Blob([receiptContent], { type: "text/html" });
+  document.getElementById("downloadReceipt").onclick = () => {
+    const content = receiptBox.querySelector(".receipt").outerHTML;
+
+    const blob = new Blob([content], { type: "text/html" });
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = `Kritto_${trackingId}.html`;
+    link.click();
+  };
+    }    const blob = new Blob([receiptContent], { type: "text/html" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
     link.download = `Kritto_Receipt_${docId}.html`;
