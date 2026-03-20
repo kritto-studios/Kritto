@@ -6,10 +6,15 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-aut
 
 /* ===== FIREBASE CONFIG ===== */
 const firebaseConfig = {
-  apiKey: "AIzaSy...",
+  apiKey: "AIzaSyB2V7uSRF88EEa_7ca8M2L6bnmYMl6zLBE",
   authDomain: "kritto-7c55b.firebaseapp.com",
   projectId: "kritto-7c55b",
+  storageBucket: "kritto-7c55b.firebasestorage.app",
+  messagingSenderId: "1091669122505",
+  appId: "1:1091669122505:web:c3b83baed9db2a5ce8dc18",
+  measurementId: "G-CL3SMLSLVN"
 };
+
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -32,7 +37,7 @@ form.addEventListener("submit", async (e) => {
   const user = auth.currentUser;
 
   try {
-    // 
+    // SAVE & GET docRef
     const docRef = await addDoc(collection(db, "cards"), {
       name,
       idea,
@@ -100,7 +105,7 @@ function generateReceipt(name, trackingId, method) {
       <p><strong>Status:</strong> Paid</p>
 
       <p class="thankyou">
-        Your creation has entered the atelier 
+        Your creation has entered the atelier ✨
       </p>
     </div>
 
@@ -117,10 +122,4 @@ function generateReceipt(name, trackingId, method) {
     link.download = `Kritto_${trackingId}.html`;
     link.click();
   };
-    }    const blob = new Blob([receiptContent], { type: "text/html" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = `Kritto_Receipt_${docId}.html`;
-    link.click();
-  });
 }
