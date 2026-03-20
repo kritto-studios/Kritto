@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kritto Cards</title>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="cards.css">
 </head>
 
@@ -29,25 +32,34 @@
   <form class="card-form">
 
     <label>Your Name</label>
-    <input type="text" placeholder="Enter your name" required>
+    <input type="text" name="name" placeholder="Enter your name" required>
 
     <label>Your Idea</label>
-    <textarea placeholder="Describe your card idea..." required></textarea>
+    <textarea name="idea" placeholder="Describe your card idea..." required></textarea>
 
     <label>Upload Image (optional)</label>
-    <input type="file">
+    <input type="file" name="image">
 
     <label>Delivery Type</label>
-    <select>
-      <option>Digital</option>
-      <option>Physical</option>
+    <select name="delivery">
+      <option value="Digital">Digital</option>
+      <option value="Physical">Physical</option>
     </select>
 
     <button type="submit">Submit Request</button>
 
   </form>
 
+  <!-- PAYMENT STEP -->
+  <div id="paymentBox"></div>
+
+  <!-- RECEIPT STEP -->
+  <div id="receiptBox"></div>
+
 </section>
+
+<!-- JS (VERY IMPORTANT) -->
+<script type="module" src="card.js"></script>
 
 </body>
 </html>
