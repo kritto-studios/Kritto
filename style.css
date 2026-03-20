@@ -204,3 +204,26 @@ nav {
   color: #d4af37;
   text-decoration: none;
 }
+
+.dashboard {
+  padding: 60px;
+  text-align: center;
+}
+
+.card-item {
+  border: 1px solid #d4af37;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.card-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(212,175,55,0.2);
+}
+
+#paymentBox {
+  display: none;
+}
